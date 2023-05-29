@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+
+  - name: sap_adw
+    description: "Sales data from Adventure Works"
+    schema: sap_adw
+    tables:
+    - name: salesorderheadersalesreason
+      description: "This table contains daily statistics from the organization's google ads."
