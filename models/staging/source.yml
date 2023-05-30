@@ -9,3 +9,4 @@ sources:
     - name: salesorderheadersalesreason
       description: "This table contains daily statistics from the organization's google ads."
     - name: stateprovince
+    - name: countryregion

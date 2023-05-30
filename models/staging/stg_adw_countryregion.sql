@@ -1,11 +1,8 @@
-with state_pronvice as (
+with country_region as (
     select 
-        stateprovinceid
-        , territoryid
+        countryregioncode
         , name
-        , stateprovincecode
-        , countryregioncode
-    from {{ source('sap_adw', 'stateprovince') }}
+    from {{ source('sap_adw', 'countryregion') }}
 )
 select *
-from state_pronvice
+from country_region
