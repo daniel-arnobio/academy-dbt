@@ -8,3 +8,4 @@ sources:
     tables:
     - name: salesorderheadersalesreason
       description: "This table contains daily statistics from the organization's google ads."
+    - name: stateprovince
