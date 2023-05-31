@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: sap_adw
+    description: "Sales data from Adventure Works"
+    schema: sap_adw
+    tables:
+    - name: stateprovince
+      description: "State and province data, including unique identification number and state/province name."
+
+    - name: countryregion
+      description: "ISO standard codes and names for countries and regions."
+
+    - name: employee
+      description: "Employee information such as salary, department, and title."
+
+    - name: customer
+      description: "Detailed customer data including names, credit limit, and salesperson reference."
+
+    - name: address
+      description: "Street address data for customers, employees, and vendors."
+    
+    - name: person
+      description: "Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts."
+
+    - name: product
+      description: "Details of products sold or used in the manufacturing of sold products, including name, product number, and color."
+
+    - name: productcategory
+      description: "High-level product categorization data, including unique identification number and category name."
+
+    - name: creditcard
+      description: "Customer credit card information, including card number, card type, and expiry date."
+
+    - name: salesreason
+      description: "Lookup table of customer purchase reasons, including reason type and reason description."
+
+    - name: salesorderdetail
+      description: "Detailed data on individual products associated with a specific sales order, including order quantity and product price."
+
+    - name: salesorderheader
+      description: "General sales order data, including total due, status, and customer reference."
+
+    - name: store
+      description: "Customers (resellers) of Adventure Works products."
