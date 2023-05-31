@@ -1,5 +1,8 @@
 with sales_reason as (
-    select *
+    select 
+        salesreasonid
+        , name
+        , reasontype
     from {{ source('sap_adw', 'salesreason') }}
 )
 select *
