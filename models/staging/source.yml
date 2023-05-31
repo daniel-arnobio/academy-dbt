@@ -16,6 +16,9 @@ sources:
 
     - name: address
       description: "Street address data for customers, employees, and vendors."
+    
+    - name: person
+      description: "Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts."
 
     - name: product
       description: "Details of products sold or used in the manufacturing of sold products, including name, product number, and color."
@@ -34,3 +37,6 @@ sources:
 
     - name: salesorderheader
       description: "General sales order data, including total due, status, and customer reference."
+
+    - name: store
+      description: "Customers (resellers) of Adventure Works products."
