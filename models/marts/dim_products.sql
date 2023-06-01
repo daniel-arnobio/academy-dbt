@@ -22,7 +22,7 @@ with
     )
     , dim_product as (
         select
-            product.product_id
+            product.product_id  
             , product.name as product_name
             , product_category.product_category as product_category_name
             , product_subcategory.product_subcategory as product_subcategory_name

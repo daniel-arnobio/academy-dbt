@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "Product dimension table providing detailed information about each product."
+    columns:
+      - name: product_sk
+        description: The surrogate key of the product. This is an artificially generated unique identifier used for data warehouse purposes.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id 
+        description: The natural key of the product. This is the original identifier used in source systems to uniquely identify each product.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name 
+        description: The official name of the product as it would appear in product listings, catalogs, and other official publications.
+        tests:
+          - not_null
+
+      - name: product_category_name 
+        description: The name of the category to which the product belongs. This high-level classification groups similar products together for analysis and reporting purposes.
+
+      - name: product_subcategory_name
+        description: A further division within a product category that provides more specific classification of the product. This helps in finer-grained product classification and analysis.
+
+      - name: safety_stock_level
+        description: The minimum inventory level maintained for the product to avoid stockouts. This number helps with inventory management and planning.
