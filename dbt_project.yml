@@ -36,10 +36,10 @@ models:
     
     # Applies to all files under models/example/
     staging:
-      schema: stg_daniel
+      schema: adw_staging
       materialized: table
     marts:
-      schema: stg_daniel
+      schema: adw_marts
       materialized: table
 
 
