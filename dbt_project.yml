@@ -38,6 +38,9 @@ models:
     staging:
       schema: stg_daniel
       materialized: table
+    marts:
+      schema: stg_daniel
+      materialized: table
 
 
 seeds:
