@@ -29,6 +29,9 @@ sources:
     - name: productcategory
       description: "High-level product categorization data, including unique identification number and category name."
 
+    - name: productsubcategory
+      description: "Product subcategories."
+
     - name: creditcard
       description: "Customer credit card information, including card number, card type, and expiry date."
 
