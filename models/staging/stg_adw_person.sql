@@ -1,6 +1,6 @@
 with 
     person as (
-        select
+        select distinct
             businessentityid as person_id
             , concat(firstname, ' ', middlename, ' ', lastname) as person_name
             , persontype as person_type
@@ -15,5 +15,17 @@ with
               end as person_type_description
         from {{ source('sap_adw', 'person') }}
     )
+   , person_last_update as (
+        select
+            *
+            , row_number() over(partition by person_name) as last_update
+        from person
+    )
+    , deduplicated as (
+        select *
+        from person_last_update
+        where last_update = 1
+    )
+
 select *
-from person
+from deduplicated
