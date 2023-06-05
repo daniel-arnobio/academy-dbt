@@ -1,4 +1,5 @@
-with address as (
+with 
+    address as (
         select 
             address_id
             , state_province_id
