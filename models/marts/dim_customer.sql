@@ -23,10 +23,7 @@ with
     , dim_customer as (
         select
             customer_id
-            , person.person_name
-            , person.person_type
-            , person.person_type_description
-            , store.sales_person_id
+            , person.person_name as customer_name
             , store.store_name
         from customer
         left join person on customer.customer_id = person.person_id
@@ -34,7 +31,7 @@ with
     )
     , dim_customer_sk as (
         select
-            {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as product_sk
+            {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_sk
             , *
         from dim_customer
     )

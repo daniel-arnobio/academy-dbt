@@ -20,6 +20,7 @@ with
             *
             , row_number() over(partition by person_name) as last_update
         from person
+        where person_name is not null
     )
     , deduplicated as (
         select *
