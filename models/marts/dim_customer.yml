@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Customer dimension table providing detailed information about each customer."
+    columns:
+      - name: customer_sk
+        description: The surrogate key of the customer. This is an artificially generated unique identifier used for data warehouse purposes.
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_name 
+        description: The full name of the person associated with the customer.
+        tests:
+          - unique
+
+      - name: store_name
+        description: The name of the store where the customer is associated.
