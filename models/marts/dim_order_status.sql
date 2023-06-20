@@ -1,7 +1,7 @@
 with 
     dim_order_status as (
         select
-            salesreasonid as sales_reason_id 
+            sales_reason_id 
             , name
             , reasontype
         from {{ ref('stg_adw_sales_reason') }}
