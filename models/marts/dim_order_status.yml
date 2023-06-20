@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_order_status
+    description: "Order status table providing detailed information about each order."
+    columns:
+      - name: sales_reason_sk
+        description: The surrogate key of the order. This is an artificially generated unique identifier used for data warehouse purposes.
+        tests:
+          - not_null
+          - unique
+
+      - name: sales_reason_id
+        description: The primary key.
+        tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: ""
+
+      - name: reason_type
+        description: ""
