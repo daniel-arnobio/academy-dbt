@@ -24,7 +24,7 @@ with
     )
     , dim_address as (
         select
-            address.address_id
+            state_province.territory_id as address_id
             , address.adress_line
             , address.city
             , state_province.province_name
@@ -35,7 +35,7 @@ with
     )
     , dim_address_sk as (
         select
-            {{ dbt_utils.generate_surrogate_key(['address_id']) }} as address_sk
+            {{ dbt_utils.generate_surrogate_key(['address_id', 'adress_line', 'city', 'province_name', 'country_name']) }} as address_sk
             , *
         from dim_address
 
