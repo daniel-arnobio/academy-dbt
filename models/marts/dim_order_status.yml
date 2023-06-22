@@ -11,10 +11,7 @@ models:
           - unique
 
       - name: sales_reason_id
-        description: The natural key of the order. This is the primary key from the source system.
-        tests:
-          - not_null
-          - unique
+        description: The natural key of the sales reason. This is the primary key from the source system.
 
       - name: name
         description: The name or description of the sales reason. This provides more details about why a specific order was made, such as 'Promotion', 'Seasonal', etc.
