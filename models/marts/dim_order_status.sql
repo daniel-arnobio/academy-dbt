@@ -12,7 +12,7 @@ with
             , reason_type
         from {{ ref('stg_adw_sales_reason') }}
     )
-    , dim_order_status_cte as (
+    , dim_order_status as (
         select
             stg_order_header_sales_reason.sales_order_id
             , stg_adw_sales_reason.name
@@ -23,9 +23,9 @@ with
     )
    , dim_order_status_sk as (
         select
-            {{ dbt_utils.generate_surrogate_key(['sales_order_id']) }} as sales_reason_sk
+            {{ dbt_utils.generate_surrogate_key(['sales_order_id', 'name', 'reason_type']) }} as sales_reason_sk
             , *
-        from dim_order_status_cte
+        from dim_order_status
     )
 select *
 from dim_order_status_sk

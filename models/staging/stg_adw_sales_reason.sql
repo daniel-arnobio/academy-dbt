@@ -3,7 +3,7 @@ with
         select 
             salesreasonid as sales_reason_id
             , name
-            , reason_type
+            , reasontype as reason_type
         from {{ source('sap_adw', 'salesreason') }}
     )
 select *
