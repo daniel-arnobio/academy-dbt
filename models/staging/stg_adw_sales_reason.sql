@@ -1,10 +1,16 @@
 with 
-    sales_reason as (
+    source_sales_reason as (
+        select *
+        from {{ source('sap_adw', 'salesreason') }}
+    )
+
+    , sales_reason as (
         select 
             salesreasonid as sales_reason_id
             , name
             , reasontype as reason_type
-        from {{ source('sap_adw', 'salesreason') }}
+        from source_sales_reason
     )
+    
 select *
 from sales_reason

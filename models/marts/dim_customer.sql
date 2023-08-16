@@ -2,7 +2,7 @@ with
     customer as (
         select
            customer_id
-        from {{ ref('stg_adw_customer') }}   
+        from {{ ref('stg_adw_customers') }}   
     )
     , person as (
         select

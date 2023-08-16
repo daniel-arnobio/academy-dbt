@@ -1,6 +1,11 @@
 with 
-    person as (
-        select distinct
+    source_person as (
+        select *
+        from {{ source('sap_adw', 'person') }}
+    )
+
+    , person as (
+        select
             businessentityid as person_id
             , concat(firstname, ' ', middlename, ' ', lastname) as person_name
             , persontype as person_type
@@ -12,21 +17,9 @@ with
                 when 'VC' then 'Vendor contact'
                 when 'GC' then 'General contact'
                 else persontype
-              end as person_type_description
-        from {{ source('sap_adw', 'person') }}
-    )
-   , person_last_update as (
-        select
-            *
-            , row_number() over(partition by person_name) as last_update
-        from person
-        where person_name is not null
-    )
-    , deduplicated as (
-        select *
-        from person_last_update
-        where last_update = 1
+            end as person_type_description
+        from source_person
     )
 
 select *
-from deduplicated
+from person

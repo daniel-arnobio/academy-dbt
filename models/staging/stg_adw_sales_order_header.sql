@@ -1,5 +1,10 @@
 with 
-    sales_order_header as (
+    source_sales_order_header as (
+        select *
+        from {{ source('sap_adw', 'salesorderheader') }}   
+    )
+
+    , sales_order_header as (
         select 
             salesorderid as sales_order_id
             , customerid as customer_id
@@ -16,14 +21,15 @@ with
                 when 4 then 'rejected'
                 when 5 then 'shipped'
                 when 6 then 'canceled'
-            else 'unknowm'
+                else 'unknowm'
             end as order_status
             , onlineorderflag as online_order_flag
             , subtotal as sub_total
             , taxamt as tax_amt
             , freight
             , totaldue as total_due
-    from {{ source('sap_adw', 'salesorderheader') }}
+        from source_sales_order_header
     )
+
 select *
 from sales_order_header
