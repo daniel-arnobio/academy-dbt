@@ -35,6 +35,9 @@ sources:
     - name: creditcard
       description: "Customer credit card information, including card number, card type, and expiry date."
 
+    - name: salesorderheadersalesreason
+      description: "Cross-reference table mapping sales orders to sales reason codes.."  
+
     - name: salesreason
       description: "Lookup table of customer purchase reasons, including reason type and reason description."
 

@@ -32,11 +32,10 @@ with
         left join product_category on product_subcategory.product_category_id = product_category.product_category_id
     )
     , dim_product_sk as (
-            select
-                {{ dbt_utils.generate_surrogate_key(['product_id']) }} as product_sk
-                , *
-           from dim_product
+        select
+            {{ dbt_utils.generate_surrogate_key(['product_id']) }} as product_sk
+            , *
+        from dim_product
     )
 select *
 from dim_product_sk
- 
