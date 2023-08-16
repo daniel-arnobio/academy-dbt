@@ -1,10 +1,16 @@
-with 
-    product_sub_category as (
+with
+    source_product_sub_category as (
+        select *
+        from {{ source('sap_adw', 'productsubcategory') }}    
+    )
+
+    , product_sub_category as (
         select 
           productsubcategoryid as product_subcategory_id
           , productcategoryid as product_category_id
           , name
-        from {{ source('sap_adw', 'productsubcategory') }}
+        from source_product_sub_category
     )
+
 select *
 from product_sub_category

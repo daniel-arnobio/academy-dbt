@@ -1,5 +1,10 @@
 with 
-    employee as (
+    source_employee as (
+        select *
+        from {{ source('sap_adw', 'employee') }}
+    )
+
+    , employee as (
         select 
             businessentityid as employee_id
             , jobtitle as job_tittle
@@ -9,7 +14,8 @@ with
             , vacationhours as vacation_hours
             , sickleavehours as sick_leave_hours
             , currentflag as current_flag
-        from {{ source('sap_adw', 'employee') }}
+        from source_employee
     )
+
 select *
 from employee
