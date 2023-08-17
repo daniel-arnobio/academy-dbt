@@ -8,7 +8,7 @@ with
         select 
           productsubcategoryid as product_subcategory_id
           , productcategoryid as product_category_id
-          , name
+          , name as product_subcategory_name
         from source_product_sub_category
     )
 

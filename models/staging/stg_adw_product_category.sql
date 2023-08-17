@@ -7,7 +7,7 @@ with
     , product_category as (
         select 
            productcategoryid as product_category_id
-           , name
+           , name as product_category_name
         from source_product_category
     )
     

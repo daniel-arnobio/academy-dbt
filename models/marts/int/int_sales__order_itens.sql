@@ -1,30 +1,11 @@
 with
     sales_order_detail as (
-        select
-            sales_order_detail_id
-            , sales_order_id
-            , product_id
-            , order_qty
-            , unit_price
-            , unit_price_discount
+        select *
         from {{ ref('stg_adw_sales_order_detail') }}
     )
 
     , sales_order_header as (
-        select
-            sales_order_id
-            , customer_id
-            , territory_id
-            , credit_card_id
-            , order_date as metric_date
-            , ship_date
-            , due_date
-            , order_status
-            , online_order_flag
-            , sub_total
-            , tax_amt
-            , freight
-            , total_due
+        select *
         from {{ ref('stg_adw_sales_order_header') }}
     )
  

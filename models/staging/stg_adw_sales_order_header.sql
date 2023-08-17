@@ -28,6 +28,7 @@ with
             , taxamt as tax_amt
             , freight
             , totaldue as total_due
+            , onlineorderflag as online_order_flag
         from source_sales_order_header
     )
 

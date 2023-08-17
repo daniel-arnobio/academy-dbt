@@ -2,11 +2,12 @@ with
     date_series as (
         {{ dbt_utils.date_spine(
             datepart="day",
-            start_date="cast('1980-01-01' as date)",
+            start_date="cast('1900-01-01' as date)",
             end_date="date_add(current_date, interval 1 year)"
         )
         }}
     )
+
     , date_columns as (
         select distinct
             cast(date_day as date) as metric_date
@@ -47,11 +48,13 @@ with
             end as fullmonth
         from date_series
     )
+
     , transformed as (
         select
             *
             , concat('W', cast(week as string), '-', cast(year as string)) as week_year
         from date_columns
     )
-    select *
-    from transformed
+
+select *
+from transformed

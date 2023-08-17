@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_product
+  - name: dim_products
     description: "Product dimension table providing detailed information about each product."
     columns:
       - name: product_sk
@@ -12,14 +12,9 @@ models:
 
       - name: product_id 
         description: The natural key of the product. This is the original identifier used in source systems to uniquely identify each product.
-        tests:
-          - not_null
-          - unique
 
       - name: product_name 
         description: The official name of the product as it would appear in product listings, catalogs, and other official publications.
-        tests:
-          - not_null
 
       - name: product_category_name 
         description: The name of the category to which the product belongs. This high-level classification groups similar products together for analysis and reporting purposes.

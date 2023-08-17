@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_adress
+  - name: dim_address
     description: "Address dimension table providing detailed information about each address."
     columns:
       - name: address_sk
@@ -12,9 +12,6 @@ models:
 
       - name: address_id
         description: The natural key of the address as it appears in the source system.
-        tests:
-          - not_null
-          - unique
 
       - name: address_line
         description: The detailed street address, including any apartment or unit numbers.

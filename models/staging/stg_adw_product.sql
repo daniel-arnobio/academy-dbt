@@ -8,7 +8,7 @@ with
         select 
            productid as product_id
            , productsubcategoryid as product_subcategory_id
-           , name
+           , name as product_name
            , safetystocklevel as safety_stock_level
         from source_product
     )
