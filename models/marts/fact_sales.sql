@@ -37,6 +37,7 @@ with
     , joined_table as (
         select 
             {{ dbt_utils.generate_surrogate_key(['fact_table.sales_order_detail_id', 'fact_table.sales_order_id', 'dim_sales_reason.sales_reason_sk']) }} as metrics_sk
+            , fact_table.sales_order_id
             , dim_address.address_sk as address_fk
             , dim_credit_card.credit_card_sk as credit_card_fk
             , dim_customer.customer_sk as customer_fk
@@ -77,6 +78,7 @@ with
             , customer_fk
             , sales_reason_fk
             , product_fk
+            , sales_order_id
             , metric_date 
             , ship_date
             , due_date
