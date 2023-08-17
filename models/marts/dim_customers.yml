@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_customer
+  - name: dim_customers
     description: "Customer dimension table providing detailed information about each customer."
     columns:
       - name: customer_sk
@@ -9,11 +9,9 @@ models:
         tests:
           - not_null
           - unique
-
+      
+      - name: customer_id
+        description: Primary key.
+      
       - name: customer_name 
         description: The full name of the person associated with the customer.
-        tests:
-          - unique
-
-      - name: store_name
-        description: The name of the store where the customer is associated.

@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: dim_order_status
-    description: "Order status table providing detailed information about each order."
+  - name: dim_sales_reason
+    description: "Sales reason table providing detailed information about the reason of each order."
     columns:
       - name: sales_reason_sk
         description: The surrogate key of the order. This is an artificially generated unique identifier used for data warehouse purposes.
@@ -13,7 +13,7 @@ models:
       - name: sales_reason_id
         description: The natural key of the sales reason. This is the primary key from the source system.
 
-      - name: name
+      - name: sales_reason_name
         description: The name or description of the sales reason. This provides more details about why a specific order was made, such as 'Promotion', 'Seasonal', etc.
 
       - name: reason_type

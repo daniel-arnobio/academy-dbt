@@ -7,7 +7,7 @@ with
     , sales_reason as (
         select 
             salesreasonid as sales_reason_id
-            , name
+            , name as sales_reason_name
             , reasontype as reason_type
         from source_sales_reason
     )
