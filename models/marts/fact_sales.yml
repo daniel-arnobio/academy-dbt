@@ -12,7 +12,6 @@ models:
       - name: address_fk
         description: Foreign key that links the fact table with the dim_address
         tests:
-          - unique
           - not_null
           - relationships:
               to: ref('dim_address')
@@ -21,8 +20,6 @@ models:
       - name: credit_card_fk
         description: Foreign key that links the fact table with the dim_credit_card
         tests:
-          - unique
-          - not_null
           - relationships:
               to: ref('dim_credit_card')
               field: credit_card_sk
@@ -30,7 +27,6 @@ models:
       - name: customer_fk
         description: Foreign key that links the fact table with the dim_customers
         tests:
-          - unique
           - not_null
           - relationships:
               to: ref('dim_customers')
@@ -39,8 +35,6 @@ models:
       - name: sales_reason_fk
         description: Foreign key that links the fact table with the dim_sales_reasons
         tests:
-          - unique
-          - not_null
           - relationships:
               to: ref('dim_sales_reasons')
               field: sales_reason_sk
@@ -48,7 +42,6 @@ models:
       - name: product_fk
         description: Foreign key that links the fact table with the dim_products
         tests:
-          - unique
           - not_null
           - relationships:
               to: ref('dim_products')
@@ -57,11 +50,10 @@ models:
       - name: metric_date
         description: Foreign key from dim_dates table
         tests:
-          - unique
           - not_null
           - relationships:
               to: ref('dim_dates')
-              field: date_sk
+              field: metric_date
     
       - name: freight
         description: Shipping cost
