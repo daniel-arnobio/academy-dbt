@@ -93,6 +93,7 @@ with
             , order_qty
             , unit_price
             , unit_price_discount
+            , unit_price * order_qty as gross_value
             , unit_price * order_qty * (1 - unit_price_discount) as net_total
         from joined_table
     )
