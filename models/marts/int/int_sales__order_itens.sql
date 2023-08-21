@@ -20,9 +20,9 @@ with
             , sales_order_detail.order_qty
             , sales_order_detail.unit_price
             , sales_order_detail.unit_price_discount
-            , sales_order_header.metric_date
             , sales_order_header.ship_date
             , sales_order_header.due_date
+            , sales_order_header.order_date
             , sales_order_header.order_status
             , sales_order_header.online_order_flag
             , sales_order_header.sub_total

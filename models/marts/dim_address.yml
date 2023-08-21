@@ -12,6 +12,9 @@ models:
 
       - name: address_id
         description: The natural key of the address as it appears in the source system.
+        tests:
+          - not_null
+          - unique
 
       - name: address_line
         description: The detailed street address, including any apartment or unit numbers.

@@ -7,45 +7,120 @@ sources:
     tables:
     - name: stateprovince
       description: "State and province data, including unique identification number and state/province name."
-
+      columns:
+        - name: stateprovinceid
+          description: It is a primary key from state province table.
+          tests:
+              - unique
+              - not_null                    
     - name: countryregion
       description: "ISO standard codes and names for countries and regions."
-
+      columns:
+        - name: countryregioncode
+          description: It is a primary key from country table
+          tests:
+               - unique
+               - not_null
     - name: employee
       description: "Employee information such as salary, department, and title."
+      columns:
+        - name: businessentityid
+          description: It is a primary key from employee table
+          tests:
+               - unique
+               - not_null
 
     - name: customer
       description: "Detailed customer data including names, credit limit, and salesperson reference."
-
+      columns:
+        - name: customerid
+          description: It is a foreign key from BusinessEntityID as a unique key from customer table
+          tests:
+               - unique
+               - not_null
     - name: address
       description: "Street address data for customers, employees, and vendors."
-    
+      columns:
+        - name: addressid
+          description: It's a primary key from addresses table    
+          tests:
+             - unique
+             - not_null
     - name: person
       description: "Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts."
-
+      columns:
+        - name: businessentityid
+          description: It is a foreign key from BusinessEntityID as a unique key from person table
+          tests:
+            - unique
+            - not_null
     - name: product
       description: "Details of products sold or used in the manufacturing of sold products, including name, product number, and color."
-
+      columns:
+        - name: productid
+          description: Primary key for Product records
+          tests:
+            - unique
+            - not_null
     - name: productcategory
       description: "High-level product categorization data, including unique identification number and category name."
-
+      columns:
+        - name: productcategoryid
+          description: Primary key for Product Category records
+          tests:
+            - unique
+            - not_null
     - name: productsubcategory
       description: "Product subcategories."
-
+      columns:
+        - name: productsubcategoryid	
+          description: Primary key for Product subcategory records
+          tests:
+            - unique
+            - not_null
     - name: creditcard
       description: "Customer credit card information, including card number, card type, and expiry date."
-
+      columns:
+        - name: creditcardid	
+          description:  It is a primary key from credit card table
+          tests:
+            - unique
+            - not_null
     - name: salesorderheadersalesreason
-      description: "Cross-reference table mapping sales orders to sales reason codes.."  
-
+      description: Cross-reference table mapping sales orders to sales reason codes  
+      columns:
+        - name: salesorderid	
+          description:  It is a primary key from credit card table
+          tests:
+            - not_null
     - name: salesreason
       description: "Lookup table of customer purchase reasons, including reason type and reason description."
-
+      columns:
+        - name: salesreasonid	
+          description:  It is a primary key from sales reason table
+          tests:
+            - not_null
     - name: salesorderdetail
       description: "Detailed data on individual products associated with a specific sales order, including order quantity and product price."
-
+      columns:
+        - name: salesorderdetailid	
+          description:  It is a primary key from sales order details table
+          tests:
+            - unique
+            - not_null
     - name: salesorderheader
       description: "General sales order data, including total due, status, and customer reference."
-
+      columns:
+        - name: salesorderid	
+          description:  It is a primary key from sales order table
+          tests:
+            - unique
+            - not_null
     - name: store
       description: "Customers (resellers) of Adventure Works products."
+      columns:
+        - name: businessentityid		
+          description:  It is a primary key from store table
+          tests:
+            - unique
+            - not_null

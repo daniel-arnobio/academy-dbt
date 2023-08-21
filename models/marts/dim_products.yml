@@ -12,7 +12,10 @@ models:
 
       - name: product_id 
         description: The natural key of the product. This is the original identifier used in source systems to uniquely identify each product.
-
+        tests:
+          - not_null
+          - unique
+          
       - name: product_name 
         description: The official name of the product as it would appear in product listings, catalogs, and other official publications.
 

@@ -12,6 +12,9 @@ models:
       
       - name: customer_id
         description: Primary key.
+        tests:
+          - not_null
+          - unique
       
       - name: customer_name 
         description: The full name of the person associated with the customer.
