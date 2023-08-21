@@ -36,7 +36,7 @@ with
 
     , joined_table as (
         select 
-            {{ dbt_utils.generate_surrogate_key(['fact_table.sales_order_detail_id', 'fact_table.sales_order_id', 'dim_sales_reason.sales_reason_sk']) }} as metrics_sk
+            {{ dbt_utils.generate_surrogate_key(['fact_table.sales_order_detail_id', 'fact_table.sales_order_id']) }} as metrics_sk
             , fact_table.sales_order_id
             , dim_address.address_sk as address_fk
             , dim_credit_card.credit_card_sk as credit_card_fk
@@ -46,6 +46,7 @@ with
             , dim_dates.metric_date 
             , fact_table.ship_date
             , fact_table.due_date
+            , fact_table.order_date
             , fact_table.order_status
             , fact_table.online_order_flag
             , fact_table.sub_total
@@ -63,7 +64,7 @@ with
         left join dim_customer
             on fact_table.customer_id = dim_customer.customer_id
         left join dim_dates
-            on fact_table.metric_date = dim_dates.metric_date
+            on fact_table.order_date = dim_dates.metric_date
         left join dim_sales_reason
             on fact_table.sales_order_id = dim_sales_reason.sales_order_id
         left join dim_products
@@ -82,6 +83,7 @@ with
             , metric_date 
             , ship_date
             , due_date
+            , order_date
             , order_status
             , online_order_flag
             , sub_total
