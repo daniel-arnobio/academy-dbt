@@ -17,6 +17,7 @@ with
     , dim_address as (
         select
             address.address_id
+            , state_province.territory_id
             , address.adress_line
             , address.city
             , state_province.province_name

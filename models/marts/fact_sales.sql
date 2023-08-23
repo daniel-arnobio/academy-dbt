@@ -64,7 +64,7 @@ with
             , fact_table.unit_price_discount
         from fact_table
         left join dim_address 
-            on fact_table.territory_id = dim_address.address_id
+            on fact_table.bill_to_address_id = dim_address.address_id
         left join dim_credit_card
             on fact_table.credit_card_id = dim_credit_card.credit_card_id
         left join dim_customer

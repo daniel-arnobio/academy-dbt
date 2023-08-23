@@ -10,6 +10,7 @@ with
             , customerid as customer_id
             , salespersonid as sales_person_id
             , territoryid as territory_id
+            , billtoaddressid as bill_to_address_id
             , creditcardid as credit_card_id
             , date(timestamp(orderdate)) as order_date
             , date(timestamp(shipdate)) as ship_date
