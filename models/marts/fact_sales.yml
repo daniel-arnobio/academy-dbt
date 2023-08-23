@@ -47,6 +47,13 @@ models:
               to: ref('dim_products')
               field: product_sk
           
+      - name: employee_sk
+        description: Foreign key that links the fact table with the dim_employee
+        tests:
+          - relationships:
+              to: ref('dim_employee')
+              field: employee_sk
+          
       - name: metric_date
         description: Foreign key from dim_dates table
         tests:

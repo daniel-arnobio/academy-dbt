@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: dim_employee
+    description: "This table serves as the Employee dimension within the data warehouse. It provides granular insights about each sales vendor, enabling data-driven decisions about sales performance and employee management."
+    columns:
+      - name: employee_sk
+        description: The surrogate key of the employee. It is an auto-generated unique identifier optimized for data warehousing purposes.
+        tests:
+          - not_null
+          - unique
+
+      - name: sales_person_id 
+        description: This is the employee's natural key, originating from the source systems, ensuring consistency with legacy systems.
+        tests:
+          - not_null
+          - unique
+          
+      - name: territory_id 
+        description: The identifier of the territory currently assigned to the salesperson. This indicates where the employee is responsible for making sales.
+
+      - name: person_name 
+        description: Full name of the employee.
+
+      - name: job_title
+        description: Specifies the official designation or position held by the employee within the organization.
+
+      - name: birth_date
+        description: Indicates the date the employee was born, useful for age-related analysis.
+        
+      - name: gender 
+        description: Represents the employee's gender, which can be useful for demographic studies.
+
+      - name: hire_date 
+        description: The date on which the employee joined the company.
+
+      - name: vacation_hours
+        description: The number of vacation hours the employee has accrued or taken.
+
+      - name: sick_leave_hours
+        description: The number of sick leave hours the employee has accrued or taken.
+
+      - name: sales_quota 
+        description: The set sales target or goal assigned to the employee for a specific period.
+
+      - name: bonus 
+        description: Monetary incentive provided to the employee based on performance or other criteria.
+
+      - name: commission_pct
+        description: Percentage of the sales revenue that the employee earns as a commission.
+
+      - name: sales_ytd
+        description: Represents the total sales made by the employee in the current year-to-date.
+
+      - name: sales_last_year
+        description: Captures the total sales made by the employee in the previous year.
