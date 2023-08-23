@@ -47,7 +47,7 @@ models:
               to: ref('dim_products')
               field: product_sk
           
-      - name: employee_sk
+      - name: employee_fk
         description: Foreign key that links the fact table with the dim_employee
         tests:
           - relationships:
