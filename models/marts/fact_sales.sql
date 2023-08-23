@@ -46,7 +46,7 @@ with
             , dim_address.address_sk as address_fk
             , dim_credit_card.credit_card_sk as credit_card_fk
             , dim_customer.customer_sk as customer_fk
-            , dim_employee.employee_sk
+            , dim_employee.employee_sk as employee_fk
             , dim_sales_reason.sales_reason_sk as sales_reason_fk
             , dim_products.product_sk as product_fk
             , dim_dates.metric_date 
@@ -87,7 +87,7 @@ with
             , customer_fk
             , sales_reason_fk
             , product_fk
-            , employee_sk
+            , employee_fk
             , sales_order_id
             , metric_date 
             , ship_date
