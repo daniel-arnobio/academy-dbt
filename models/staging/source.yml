@@ -124,3 +124,12 @@ sources:
           tests:
             - unique
             - not_null
+
+    - name: salesperson
+      description: "Sales (vendors) of Adventure Works products."
+      columns:
+        - name: businessentityid		
+          description:  It is a primary key from store table
+          tests:
+            - unique
+            - not_null
