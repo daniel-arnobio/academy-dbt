@@ -19,6 +19,11 @@ with
         from {{ ref('dim_dates') }}
     )
 
+    , dim_employee as (
+        select *
+        from {{ ref('dim_employee') }}
+    )
+
     , dim_sales_reason as (
         select *
         from {{ ref('dim_sales_reason') }}
@@ -41,6 +46,7 @@ with
             , dim_address.address_sk as address_fk
             , dim_credit_card.credit_card_sk as credit_card_fk
             , dim_customer.customer_sk as customer_fk
+            , dim_employee.employee_sk
             , dim_sales_reason.sales_reason_sk as sales_reason_fk
             , dim_products.product_sk as product_fk
             , dim_dates.metric_date 
@@ -69,6 +75,8 @@ with
             on fact_table.sales_order_id = dim_sales_reason.sales_order_id
         left join dim_products
             on fact_table.product_id = dim_products.product_id
+        left join dim_employee
+            on fact_table.sales_person_id = dim_employee.sales_person_id
     )
 
     , fact_metrics as (
@@ -79,6 +87,7 @@ with
             , customer_fk
             , sales_reason_fk
             , product_fk
+            , employee_sk
             , sales_order_id
             , metric_date 
             , ship_date
