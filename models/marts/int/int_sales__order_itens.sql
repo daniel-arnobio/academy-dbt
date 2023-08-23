@@ -16,6 +16,7 @@ with
             , sales_order_detail.product_id
             , sales_order_header.customer_id
             , sales_order_header.territory_id
+            , sales_order_header.sales_person_id
             , sales_order_header.credit_card_id
             , sales_order_detail.order_qty
             , sales_order_detail.unit_price

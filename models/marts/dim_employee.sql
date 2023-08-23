@@ -38,5 +38,12 @@ with
             on sales_person.sales_person_id = person.person_id
     )
 
+    , dim_employee_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['sales_person_id']) }} as employee_sk
+            , *
+        from dim_employee
+    )
+
 select *
-from dim_employee
+from dim_employee_sk
