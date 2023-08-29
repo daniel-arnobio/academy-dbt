@@ -13,11 +13,10 @@ with
         select distinct
             stg_order_header_sales_reason.sales_order_id
             , string_agg(stg_adw_sales_reason.sales_reason_name, ', ') as sales_reason_name
-            , stg_adw_sales_reason.reason_type
         from stg_order_header_sales_reason
         left join stg_adw_sales_reason
             on stg_order_header_sales_reason.sales_reason_id =stg_adw_sales_reason.sales_reason_id
-        group by sales_order_id, reason_type
+        group by sales_order_id
     )
 
    , dim_order_status_sk as (
